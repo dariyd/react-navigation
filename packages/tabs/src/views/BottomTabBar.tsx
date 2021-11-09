@@ -120,8 +120,7 @@ class TabBarBottom extends React.Component<BottomTabBarProps, State> {
     keyboard: false,
     visible: new Animated.Value(1),
   };
-
-  navSubs = [];
+  navSubs: Array<any> = [];
 
   componentDidMount() {
     if (Platform.OS === 'ios') {
@@ -131,8 +130,8 @@ class TabBarBottom extends React.Component<BottomTabBarProps, State> {
       ]);
     } else {
       this.navSubs.concat([
-        Keyboard.addListener('keyboardDidShow', this._handleKeyboardShow);
-        Keyboard.addListener('keyboardDidHide', this._handleKeyboardHide);
+        Keyboard.addListener('keyboardDidShow', this._handleKeyboardShow),
+        Keyboard.addListener('keyboardDidHide', this._handleKeyboardHide),
       ]);
       
     }
